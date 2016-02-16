@@ -2,16 +2,15 @@
 #include "Dictionary.h"
 
 
-CDictionary::CDictionary(std::string const & filename)
-	: m_filename(filename)
+CDictionary::CDictionary()
 {
 }
 
-void CDictionary::Load()
+void CDictionary::Load(std::istream const & istream)
 {
 }
 
-void CDictionary::Save()
+std::ostream CDictionary::Save()
 {
 }
 

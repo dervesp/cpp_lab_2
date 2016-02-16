@@ -6,10 +6,10 @@
 class CDictionary
 {
 public:
-	CDictionary(std::string const & filename);
+	CDictionary();
 
-	void Load();
-	void Save();
+	void Load(std::istream const & istream);
+	void Save(std::ostream const & ostream);
 
 	bool HasTranslate(std::string const & phrase) const;
 	void AddTranslate(std::string const & phrase, std::string const & translation);
