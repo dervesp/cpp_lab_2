@@ -37,20 +37,20 @@ void CDictionary::Save(std::ostream & ostream)
 
 bool CDictionary::HasTranslation(std::string const & phrase) const
 {
-	bool hasTranslation = m_dictionaryMap.find(phrase) != m_dictionaryMap.end();
+	bool hasTranslation = m_dictionaryMap.find(ConvertToLowercase(phrase)) != m_dictionaryMap.end();
 	return hasTranslation;
 }
 
 void CDictionary::AddTranslation(std::string const & phrase, std::string const & translation)
 {
-	m_dictionaryMap[phrase] = translation;
+	m_dictionaryMap[ConvertToLowercase(phrase)] = translation;
 }
 
 std::string CDictionary::Translate(std::string const & phrase)
 {
 	if (HasTranslation(phrase))
 	{
-		return m_dictionaryMap[phrase];
+		return m_dictionaryMap[ConvertToLowercase(phrase)];
 	}
 	throw new std::exception("No translation");
 }
