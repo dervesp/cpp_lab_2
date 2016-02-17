@@ -8,11 +8,11 @@ class CDictionary
 public:
 	CDictionary();
 
-	void Load(std::istream & istream);
+	bool Load(std::istream & istream);
 	void Save(std::ostream & ostream);
 
 	bool HasTranslation(std::string const & phrase) const;
-	bool AddTranslation(std::string const & phrase, std::string const & translation);
+	void AddTranslation(std::string const & phrase, std::string const & translation);
 	std::string Translate(std::string const & phrase);
 
 private:
@@ -21,5 +21,5 @@ private:
 };
 
 
-std::string TrimAndConvertToLowercase(std::string const & phrase);
+std::string ConvertToLowercase(std::string const & phrase);
 
