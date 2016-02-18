@@ -26,7 +26,7 @@ bool CDictionary::Load(std::istream & istream)
 	return firstInPair;
 }
 
-void CDictionary::Save(std::ostream & ostream)
+void CDictionary::Save(std::ostream & ostream) const
 {
 	for (auto it = m_dictionaryMap.begin(); it != m_dictionaryMap.end(); ++it)
 	{
@@ -46,13 +46,13 @@ void CDictionary::AddTranslation(std::string const & phrase, std::string const &
 	m_dictionaryMap[ConvertToLowercase(phrase)] = translation;
 }
 
-std::string CDictionary::Translate(std::string const & phrase)
+std::string CDictionary::Translate(std::string const & phrase) const
 {
 	if (HasTranslation(phrase))
 	{
-		return m_dictionaryMap[ConvertToLowercase(phrase)];
+		return m_dictionaryMap.at(ConvertToLowercase(phrase));
 	}
-	throw new std::exception("No translation");
+	throw std::exception("No translation");
 }
 
 std::string ConvertToLowercase(std::string const & phrase)
